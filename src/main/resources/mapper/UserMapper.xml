@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.mapper.UserMapper">
+    <select id="queryOneUser" resultType="User">
+      select * from t_user where name=#{name}
+    </select>
+
+       <!-- 查询分页用户字段 -->
+    <select id="queryAllUser" resultType="User">
+      select * from t_user limit #{page},#{rows}
+    </select>
+
+    <select  id ="selectCount" resultType="java.lang.Integer">
+    select count(1) from t_user
+    </select>
+
+    <!--查询所有-->
+    <select id="getAll" resultType="User">
+      select * from t_user
+    </select>
+    <!--近七天的用户-->
+
+
+</mapper>

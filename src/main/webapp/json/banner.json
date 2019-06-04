@@ -1,0 +1,26 @@
+[
+  {
+    "id": "001",
+    "title": "轮播图1",
+    "status": "展示",
+    "description": "这是轮播图",
+    "createDate": "2019-10-10",
+    "url": "shouye.jpg"
+  },
+  {
+    "id": "002",
+    "title": "轮播图2",
+    "status": "展示",
+    "description": "这是轮播图",
+    "createDate": "2019-10-10",
+    "url": "shouye.jpg"
+  },
+  {
+    "id": "003",
+    "title": "轮播图3",
+    "status": "展示",
+    "description": "这是轮播图",
+    "createDate": "2019-10-10",
+    "url": "shouye.jpg"
+  }
+]

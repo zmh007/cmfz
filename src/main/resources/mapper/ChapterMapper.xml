@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.mapper.ChapterMapper">
+  <resultMap id="BaseResultMap" type="com.baizhi.entity.Chapter">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="album_id" jdbcType="VARCHAR" property="albumId" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="duration" jdbcType="VARCHAR" property="duration" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, title, size, duration, path ,album_id
+  </sql>
+
+  <select id="selectAllChapter" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_chapter where album_id=#{albumId}
+    limit #{start} ,#{rows}
+  </select>
+  <select id="selectCount" resultType="Integer">
+    select count(1) from t_chapter where album_id=#{albumId}
+
+  </select>
+<!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_chapter
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.baizhi.entity.Chapter">
+    insert into t_chapter (id, title, size, 
+      duration, path)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{duration,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.baizhi.entity.Chapter">
+    insert into t_chapter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="duration != null">
+        duration,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.baizhi.entity.Chapter">
+    update t_chapter
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        duration = #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.baizhi.entity.Chapter">
+    update t_chapter
+    set title = #{title,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=VARCHAR},
+      path = #{path,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>-->
+</mapper>
